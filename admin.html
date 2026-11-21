@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сайт</title>
+<link rel="icon" href="/icon.jpg">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body data-page="admin">
+<div id="header"></div>
+<main class="wrap">
+  <div id="admin-need-auth" class="card" style="display:none">
+    <p>Доступ только для администратора.</p>
+  </div>
+  <div id="admin-area" style="display:none">
+    <div class="tabsline">
+      <button id="tabbtn-users">Пользователи</button>
+      <button id="tabbtn-settings" class="ghost">Настройки сайта</button>
+      <button id="tabbtn-images" class="ghost">Картинки сайта</button>
+      <button id="tabbtn-data" class="ghost">Данные</button>
+    </div>
+
+    <div id="tab-users" class="card">
+      <h2>Пользователи</h2>
+      <table>
+        <tr><th>Имя</th><th>ФИО</th><th>IP регистрации</th><th>Роль</th><th>Статус</th><th>Действия</th></tr>
+        <tbody id="users-tbody"></tbody>
+      </table>
+    </div>
+
+    <div id="tab-settings" class="card" style="display:none">
+      <h2>Настройки сайта</h2>
+      <p class="muted" id="st-currentip"></p>
+      <form id="st-form">
+        <label>Название сайта</label><input id="st-title">
+        <label>Описание (главная)</label><textarea id="st-desc" rows="3"></textarea>
+        <label>Контактная информация (строки с новой строки)</label><textarea id="st-contacts" rows="4"></textarea>
+        <label>Порт сервера (применяется после перезапуска)</label><input id="st-port" type="number">
+        <label>IP, с которых разрешена регистрация (по одному в строке; пусто — со всех)</label><textarea id="st-allowed" rows="3"></textarea>
+        <label>IP, регистрация с которых даёт роль администратора</label><textarea id="st-adminips" rows="3"></textarea>
+        <p><button type="submit">Сохранить настройки</button></p>
+      </form>
+    </div>
+
+    <div id="tab-images" class="card" style="display:none">
+      <h2>Картинки сайта</h2>
+      <h3>Фон сайта (hero.jpg)</h3>
+      <p class="muted">Рекомендуется широкий формат, например 1600×900. До 5 МБ.</p>
+      <input type="file" id="up-hero" accept="image/*">
+      <img id="prev-hero" class="preview" src="/img/hero.jpg">
+      <h3 style="margin-top:18px">Иконка (icon.jpg)</h3>
+      <p class="muted">Квадратная, например 256×256. До 5 МБ.</p>
+      <input type="file" id="up-icon" accept="image/*">
+      <img id="prev-icon" class="preview" src="/icon.jpg" style="width:64px;height:64px;border-radius:50%">
+      <p class="muted">После загрузки обновите страницу по Ctrl+F5.</p>
+    </div>
+
+    <div id="tab-data" class="card" style="display:none">
+      <h2>Данные</h2>
+      <p class="muted">Скачивание файлов данных сервера.</p>
+      <button id="exp-settings">Скачать settings.json</button>
+      <button id="exp-users">Скачать users.json</button>
+      <button id="exp-chat">Скачать chat.json</button>
+      <button id="exp-stats">Скачать stats.json</button>
+    </div>
+  </div>
+</main>
+<script src="/app.js"></script>
+<script src="/page.js"></script>
+
+</body>
+</html>

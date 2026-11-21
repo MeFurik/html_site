@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сайт</title>
+<link rel="icon" href="/icon.jpg">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body data-page="/games.html">
+<div id="header"></div>
+<main class="wrap">
+  <div id="games-need-auth" class="card" style="display:none">
+    <p>Раздел «Игры» доступен после входа.</p>
+  </div>
+  <div id="games-no-access" class="card" style="display:none">
+    <p>Раздел доступен для ролей «Местный», «Модератор» и «Администратор».</p>
+  </div>
+  <div id="games-area" style="display:none">
+    <div id="lobby-view">
+      <div class="card">
+        <h2>Игры — лобби</h2>
+        <div id="lobby-list"></div>
+      </div>
+      <div class="card">
+        <h2>Рейтинг</h2>
+        <table>
+          <tr><th>#</th><th>Игрок</th><th>Побед</th><th>Поражений</th><th>% побед</th></tr>
+          <tbody id="stats-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div id="game-view" style="display:none">
+      <div class="card">
+        <h2>Морской бой</h2>
+        <p id="game-status" class="stat-line" style="font-weight:600"></p>
+        <p id="ships-left" class="stat-line muted"></p>
+        <div id="place-buttons">
+          <button id="btn-regen" class="ghost">Перегенерировать</button>
+          <button id="btn-ready">Готово</button>
+        </div>
+        <div class="legend">
+          <span><span style="background:#3f5a8f"></span>корабль</span>
+          <span><span style="background:#ff6b6b"></span>попадание</span>
+          <span><span style="background:#17233c"></span>мимо</span>
+          <span><span style="background:#7a1f2b"></span>потоплен</span>
+        </div>
+        <div class="boards">
+          <div><h3>Ваше поле</h3><div id="board-mine"></div></div>
+          <div><h3>Поле соперника</h3><div id="board-enemy"></div></div>
+        </div>
+        <p style="margin-top:12px"><button id="btn-leave" class="ghost">Покинуть игру</button></p>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="/app.js"></script>
+<script src="/page.js"></script>
+<script src="/games.js"></script>
+</body>
+</html>

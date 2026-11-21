@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сайт</title>
+<link rel="icon" href="/icon.jpg">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body data-page="chat">
+<div id="header"></div>
+<main class="wrap">
+  <div id="chat-need-auth" class="card" style="display:none">
+    <p>Чат доступен только после входа. Нажмите «Вход» в шапке сайта.</p>
+  </div>
+  <div id="chat-area" style="display:none">
+    <div class="chat-grid">
+      <div class="card" style="padding:14px">
+        <h2>Чат</h2>
+        <div id="messages"></div>
+        <div id="private-mode" class="private-mode" style="cursor:pointer"></div>
+        <form id="chat-form" class="chat-input">
+          <input id="chat-text" placeholder="Сообщение…" autocomplete="off">
+          <button type="submit">Отправить</button>
+        </form>
+      </div>
+      <div class="card">
+        <h3>Сейчас в чате <span id="online-count" class="muted">0</span></h3>
+        <div id="online-list"></div>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="/app.js"></script>
+<script src="/page.js"></script>
+
+</body>
+</html>
